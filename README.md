@@ -51,5 +51,5 @@ Please include (in the repo) a current CV listing any recent or relevant code ex
 - [x] Logging
 - [ ] Testing
 - [ ] CI CD github
-- [ ] Functions documentation
+- [x] Functions documentation
 - [ ] Restrict python version
