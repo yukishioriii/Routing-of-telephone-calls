@@ -93,12 +93,15 @@ class CheapestOpFinder:
         """
 
         files = [join(self.path, f) for f in listdir(self.path)
-                 if isfile(join(self.path, f))]
+                 if isfile(join(self.path, f)) and f[-4:].lower() == ".csv"]
 
         for file in files:
             with open(file, newline='') as csv_file:
                 reader = csv.reader(csv_file, delimiter=',')
-                for prefix, price in reader:
+                for row in reader:
+                    if not row:
+                        continue
+                    prefix, price = row
                     if prefix in self.minimum_price_dict:
                         if price < self.minimum_price_dict[prefix]["price"]:
                             self.minimum_price_dict[prefix]["price"] = price
@@ -108,7 +111,7 @@ class CheapestOpFinder:
                             "price": price,
                             "operator": file
                         }
-        logger.info(self.minimum_price_dict)
+        logger.info(f"self.minimum_price_dict len {len(self.minimum_price_dict)}")
 
     def _build_search_tree(self) -> None:
         """

@@ -3,7 +3,7 @@ from telephone_router.main import CheapestOpFinder
 from constants import OP_A, OP_B, CSV_FOLDER
 
 
-class Test(unittest.TestCase):
+class TestLogic(unittest.TestCase):
     def setUp(self) -> None:
         self.finder = CheapestOpFinder(CSV_FOLDER)
 

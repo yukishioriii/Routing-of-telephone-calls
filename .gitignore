@@ -1,1 +1,3 @@
 __pycache__
+random_gen/*.csv
+.ruff_cache
