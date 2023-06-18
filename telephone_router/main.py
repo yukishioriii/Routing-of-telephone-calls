@@ -1,5 +1,4 @@
-from typing import Optional
-from typing_extensions import TypedDict
+from typing import Optional, TypedDict
 import logging
 from os.path import isfile, join
 from os import listdir
