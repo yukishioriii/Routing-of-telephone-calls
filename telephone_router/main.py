@@ -1,10 +1,10 @@
 from typing import Optional
 from typing_extensions import TypedDict
 import logging
-from pprint import pprint
 from os.path import isfile, join
 from os import listdir
 import csv
+from constants import CSV_FOLDER
 
 logger = logging.getLogger(__name__)
 handler = logging.StreamHandler()
@@ -17,9 +17,6 @@ logger.addHandler(handler)
 logger.setLevel(logging.INFO)
 
 
-CSV_FOLDER = "./operators/"
-
-
 class PrefixNode:
     """
     Node to store cheapest price at this certain point of matching
@@ -30,8 +27,9 @@ class PrefixNode:
         Op B:
             13, 0.1
 
-        Phone number `12345678` longest matching prefix is `123` which belongs to operator A with pricing of $ 0.6
-            CheapestOpFinder's query should return PrefixNode(123)
+        Phone number `12345678` longest matching prefix is `123`
+         which belongs to operator A with pricing of $ 0.6
+         CheapestOpFinder's query should return PrefixNode(123)
     """
 
     def __init__(self, digit: Optional[int], prefix: str) -> None:
@@ -64,7 +62,8 @@ class CheapestOpFinder:
         Cheapest operator finder
 
         Args:
-            operator_folder_path (str): path to folder where operator pricing are listed
+            operator_folder_path (str): path to folder where
+             operator pricing are listed
 
         Eg:
             finder = CheapestOpFinder(CSV_FOLDER)\n
@@ -72,11 +71,12 @@ class CheapestOpFinder:
 
         Logic:
             + Merge and sort all prefix pricing into `self.minimum_price_dict`
-            + Make `self.search_tree` to store DigitNode which can be used to query in O(1) time
+            + Make `self.search_tree` to store DigitNode which can be used to
+               query in O(1) time
 
         Assumption:
-            + Phone prefixes are not longer than 7,8 digit (at 8 digit storage size will take maximum around 400MB),
-                each addition to max prefix length
+            + Phone prefixes are not longer than 7,8 digit
+               (at 8 digit storage size will take maximum around 400MB)
             + Prefixes matrix are rather sparse
 
         """
