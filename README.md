@@ -1,7 +1,7 @@
 # Routing-of-telephone-calls
 ![Python versions](https://img.shields.io/badge/python-3.10-blue)
 
-alaTest / ValueChecker (ICSS) challenge 2023 for anmana000@gmail.com
+alaTest / ValueChecker (ICSS) challenge 2023 for An Đỗ [anmana000@gmail.com]
 
 
 Some telephone operators have submitted their price lists including price per minute for different phone number prefixes. The price lists look like this:
@@ -58,4 +58,4 @@ Please include (in the repo) a current CV listing any recent or relevant code ex
 ---
 ## Testing
 - [x] Logic
-- [ ] Stress Test
+- [x] Stress Test
